@@ -24,7 +24,7 @@ data "aws_route53_zone" "default" {
 
 resource "aws_route53_record" "default" {
 
-    for_each = {
+  for_each = {
     for dvo in local.domain_validation_options_list : dvo.domain_name => {
       name   = dvo.resource_record_name
       record = dvo.resource_record_value
